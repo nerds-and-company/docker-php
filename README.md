@@ -17,8 +17,12 @@ Itmundi PHP image for Docker
  - mbstring
  - gd
  - pdo_mysql
+ - zip
+ - bz2
 
 ### Other
+ - Contains git
+ - Contains curl
  - Contains a MySQL client
  - Contains Redis CLI Tools
  - Contains composer
