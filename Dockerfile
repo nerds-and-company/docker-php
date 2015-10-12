@@ -4,8 +4,11 @@ MAINTAINER Bob Olde Hampsink <b.oldehampsink@itmundi.nl>
 # Set env
 ENV COMPOSER_VERSION 1.0.0-alpha10
 
-# update apt
+# Update apt
 RUN apt-get update
+
+# Install curl and git
+RUN apt-get install -y curl git
 
 # Install mcrypt
 RUN apt-get install -y libmcrypt4 libmcrypt-dev \
@@ -37,7 +40,7 @@ ONBUILD COPY composer.json /var/www/html/
 ONBUILD ADD . /var/www/html/
 
 # Run composer install
-ONBUILD RUN composer install
+ONBUILD RUN composer install --prefer-source --no-interaction
 
 # Change PATH to include composer bin files
 ENV PATH vendor/bin:$PATH
