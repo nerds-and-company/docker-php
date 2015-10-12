@@ -20,3 +20,6 @@ RUN a2enmod rewrite
 
 # Install mysql client
 RUN apt-get install -y mysql-client
+
+# Install redis tools
+RUN apt-get install -y redis-tools
