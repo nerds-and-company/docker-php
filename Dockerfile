@@ -9,6 +9,7 @@ RUN apt-get install -y libmcrypt4 libmcrypt-dev \
 
 # Install gd
 RUN apt-get install -y libfreetype6-dev libjpeg-dev libpng12-dev --no-install-recommends \
+ && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
  && docker-php-ext-install gd
 
 # Install other needed extensions
