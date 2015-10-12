@@ -23,3 +23,17 @@ RUN apt-get install -y mysql-client
 
 # Install redis tools
 RUN apt-get install -y redis-tools
+
+# Install Composer (same as Heroku uses)
+RUN curl --silent --location "https://lang-php.s3.amazonaws.com/dist-cedar-14-master/composer.tar.gz?version=1.0.0-alpha10" | tar xz -C /app/.heroku/php
+
+# Copy dep files first so Docker caches the install step if they don't change
+ONBUILD COPY composer.lock /var/www/html/
+ONBUILD COPY composer.json /var/www/html/
+ONBUILD ADD . /var/www/html/
+
+# Run composer install
+ONBUILD RUN composer install
+
+# Change PATH to include composer bin files
+ENV PATH vendor/bin:$PATH
