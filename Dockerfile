@@ -1,4 +1,8 @@
 FROM php:5.6-apache
+MAINTAINER Bob Olde Hampsink <b.oldehampsink@itmundi.nl>
+
+# Set env
+ENV COMPOSER_VERSION 1.0.0-alpha10
 
 # update apt
 RUN apt-get update
@@ -24,8 +28,8 @@ RUN apt-get install -y mysql-client
 # Install redis tools
 RUN apt-get install -y redis-tools
 
-# Install Composer (same as Heroku uses)
-RUN curl --silent --location "https://lang-php.s3.amazonaws.com/dist-cedar-14-master/composer.tar.gz?version=1.0.0-alpha10" | tar xz -C /app/.heroku/php
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION}
 
 # Copy dep files first so Docker caches the install step if they don't change
 ONBUILD COPY composer.lock /var/www/html/

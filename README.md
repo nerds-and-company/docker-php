@@ -20,6 +20,8 @@ Itmundi PHP image for Docker
 
 ### Other
  - Contains a MySQL client
+ - Contains Redis CLI Tools
+ - Contains composer
 
 ## License
 [MIT](LICENSE)
