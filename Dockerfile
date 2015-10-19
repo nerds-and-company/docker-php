@@ -1,5 +1,5 @@
 FROM itmundi/php-base
-MAINTAINER Bob Olde Hampsink <b.oldehampsink@itmundi.nl>
+MAINTAINER Arjan Kleene <a.kleene@itmundi.nl>
 
 # Copy dep files first so Docker caches the install step if they don't change
 ONBUILD COPY composer.lock /var/www/html/

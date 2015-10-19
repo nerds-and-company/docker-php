@@ -1,31 +1,13 @@
 # itmundi/php
 Itmundi PHP image for Docker
+This container extends the `itmundi/php-base` container. See for more information that container.
 
-## Contains
+This container does not contain additional items that are not present in the base container,
+except for some `ONBUILD` statements. Since these statements are present, it is not possible
+to extend this container in other automated builds.
 
-### OS
- - Based on the debian:jessie image
-
-### Services
- - Apache 2.4
- - PHP 5.6
-
-* Derived from [docker-libary/php](https://github.com/docker-library/php/tree/master/5.6/apache)
-
-### PHP Extensions
- - mcrypt
- - mbstring
- - gd
- - pdo_mysql
- - zip
- - bz2
-
-### Other
- - Contains git
- - Contains curl
- - Contains a MySQL client
- - Contains Redis CLI Tools
- - Contains composer
+## See also
+- [`itmundi/php-base`](https://github.com/itmundi/docker-php-base)
 
 ## License
 [MIT](LICENSE)
