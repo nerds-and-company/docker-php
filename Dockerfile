@@ -1,5 +1,5 @@
-FROM itmundi/php-base
-MAINTAINER Arjan Kleene <a.kleene@itmundi.nl>
+FROM nerdsandcompany/php-base
+MAINTAINER Arjan Kleene <a.kleene@nerds.company>
 
 # Copy dep files first so Docker caches the install step if they don't change
 ONBUILD COPY composer.lock /var/www/html/
